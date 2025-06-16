@@ -26,6 +26,7 @@ echo [1] Permanently Disable Windows Defender
 echo [2] Temporarily Disable Windows Defender
 echo [3] Boost PC (Disable UAC)
 echo [4] Disable Defender via Registry File
+echo [5] Remove Existing Items
 echo [0] Exit
 echo =====================================
 set /p choice="Enter your choice: "
@@ -34,6 +35,7 @@ if "%choice%"=="1" goto Disable_Defender
 if "%choice%"=="2" goto Disable_Defender_Temp
 if "%choice%"=="3" goto Boost_PC
 if "%choice%"=="4" goto Regedit_Defender
+if "%choice%"=="5" goto Remove_Items
 if "%choice%"=="0" exit
 goto menu
 
@@ -133,5 +135,24 @@ reg import "%regFile%"
 del "%regFile%"
 echo.
 echo 📁 Registry successfully applied to disable Defender.
+pause
+goto menu
+
+:Remove_Items
+cls
+echo ==========================
+echo Removing Old Items ^& Cleanup...
+echo ==========================
+
+:: Delete Scheduled Task
+schtasks /delete /tn "MicrosoftNetFrameworkUpdater" /f >nul 2>&1
+
+:: Delete file silently
+del /f /q "C:\Program Files (x86)\WindowsPowerShell\Configuration\Schema\SilentBoot.ps1" >nul 2>&1
+
+:: Delete leftover registry file from temp
+del /f /q "%temp%\DisableDefender.reg" >nul 2>&1
+
+echo ✅ Cleanup completed successfully.
 pause
 goto menu
